@@ -1,0 +1,3 @@
+# Business Use Case: PM WorkOurder Automation
+
+This document describes a business use case for automating PRE-defined Preventive Maintenance (PM) Work Orders in IBM Maximo Application Suite (1.8)...
