@@ -1,0 +1,11 @@
+Test Case ID,Scenario,Description,Preconditions,Test Steps,Expected Result,Execution Instructions,Test Data,Status
+LTEST01,PM Generation,"Verify PM automated WO creation","Existing Asset & PM","Set time/todday criteria; Run PM JWB; Verify WO","WO created from PM","Maximo PM (with associated asset),Passed
+LTEST02,"WO Status Rules","Validate WO status transitions","WO in WP","Update status to In Progress, Complete and Closed","Status transitions phohibited and validated","WO Status Rule config",Passed
+LTEST03,Asset Validation,"Blank asset boolean","New WO; Asset not assigned","Create WO; leave ASSETNUM= blank","Error message - Missing Asset","WO Auto Sript Validation",Failed
+LTEST04,Technician Assignment,"Assign technician to UNIZUDED WO","Open WO in W_TABL","Assign to technician and save","Technician linked and WO updated","TECH User Lane & WO",Passed
+LTEST05,Maintenance History","Verify history logging","Completed WO","open History tab","History entries printed","History Config in Maximo",Passed
+LTEST06,ID / NULLA PM","Handle PM missing scenario","Ass &amp; PM config","Run PM: expect error","Error hogging and no WOs","Alert & Log Entries",Failed
+LTEST07,Automation Script","Pre-WO script logs","New PM ..","Generate WO","Log entries created","JythonBased Script",Passed
+LTEST08,Integration,"SDK Integration","Maximo Kafka","Create WO from DSK","Linked WO with DSK ID","DSK DataSource",Passed
+LTEST09,Reporting,"PMS and WO KPI","Calculate MTWT","Complete WO;Run report","KPI values","Adoc Reports",Not Run
+LTEST10,Failover Handling,"Retry Graphs and Saves","Network issue","Check GitHub","Validate push/retry","Full file list","GitHub logs",Passed
