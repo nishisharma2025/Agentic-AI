@@ -1,0 +1,5 @@
+Test Case ID,Test Scenario,Description,Preconditions,Test Steps,Expected Result,Execution Instructions,Test Data,Status
+TC-01,PM work order generation from existing PM,Verify that a work order is generated from a scheduled PM for an existing asset,"Preconditions: Asset and PM exist and are in ACTIVE status",1. Open Preventive Maintenance application
+2. Search for the target PM
+3. Click 'Generate Work Order'4. Record the new WO\n5. Check asset association,"A,Generated work order is kreated and linked to the correct asset and PM
+B Confirm that the WOSTATUS is 'NEWL',ASSETNUM=ASSET001; PMNUM=PM001;WEEKEND=1,New, Passed
