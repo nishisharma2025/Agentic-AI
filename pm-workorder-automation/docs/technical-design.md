@@ -1,0 +1,9 @@
+# PM – Work Order Automation Technical Design
+
+## Maximo Object Relationships
+
+- ASSET_TABLE (ASSET)
+  - ASSETNUM, DESIG, LOCATION, STATUS, OWNER, PARETLOCATION...
+- PMTABLE (PR)
+  - PMNUM, ASSETNUM, DESCRIPTION, FREQUENCY, BASEINDEVENT.
+- WOTABLE (
