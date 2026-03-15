@@ -1,0 +1,7 @@
+Test Case ID,Scenario,Preconditions,Steps,Expected Result,Status
+1,Asset creation in Maximo,Master data and configured asset classes exist in the system,Create a new asset with assetnum, description, location, class, and status\n,New asset is created with accurate data stored in AsseTMASER,Passed
+2,PM schedule generation from asset,Active asset exists with valid location,
+Create a new PM for the asset with periodcity and frequency set, PM is saved,\nNew PM record is visible in PMMASTER and correctly linted to the asset,Passed
+3,PM generates work order,Active PM exists with due next generation date,Run PM generation circle or scheduler,\nNew WO is created with WAM account and is in DEFAILTS status, linked to the PM and asset,Passed
+4,Work order approval,New WOIn DEFAILTS status exists with required fields completed,Open the WO""Approve" and change status to APPROVED\n,AWO is in APPROVED status, locked held and assigned to a technician,Passed
+5,Work order completion,Technician has in-progress WO assigned and work logs have been updated,Execute work tasks and complete labor entries, then set WOr status to COMPLETED\n,WO is updated to COMPLETED status, work logs are finalised, and asset history shows the new maintenance event,Passed
