@@ -1,0 +1,6 @@
+Test Case ID,Scenario,Preconditions,Steps,Expected Result,Status
+TC01,Asset creation,Maximo instance available,"Log in as approved role","Create new Asset with all required fields",Asset created and visible in asset list,Passing
+TC02,PM schedule generation,"Asset and PM configured","Generate PM from PM generation schedule",PM created and associated with Asset,Passing
+TC03,Work order creation,"PM exists for Asset","GEN work orders from PM",Work orders created with correct links to Asset and PM,Passing
+TC04,Work order approval,"New work order created","Approve work order",Work order status updated to Approved and notifications sent,Passing
+TC05,Work completion,"Approved work order assigned to technician","Log actual start and end times in work order",Work order status changed to Completed and history updated,Passing
