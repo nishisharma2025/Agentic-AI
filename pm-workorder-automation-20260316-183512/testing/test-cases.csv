@@ -1,0 +1,4 @@
+Test Case ID,Execution Name,Object, Preconditions,Steps,Expected Result,Actual Result
+1,Validate New PM Work Order Generation,PM / Work Order,"Create a new PM and generate a work order","1. Create PM
+2. Forceast Work Orders
+3. Validate WO Data","Work order is created with correct data and status",OK_EXPECTED,<Actual result>"
