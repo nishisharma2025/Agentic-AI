@@ -1,0 +1,2 @@
+Test ID,Description,Steps,Expected Result
+TC_01,Validate asset to PM relationship,"- Log in to the automation script - Run asset-pm validation function","Automation script identifies linked PMs for given asset without warnings
