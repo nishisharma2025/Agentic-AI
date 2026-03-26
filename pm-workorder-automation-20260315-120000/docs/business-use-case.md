@@ -1,6 +1,6 @@
 # Business Use Case: PM Work Order Automation
 
-This document describes a business use-case for automating PM -> WO lifecycles in IBM  Maximo Application Suite 8.x.
+This document describes a business use-case for automating PM -> WO lifecycles in IBM  Maximo Application Suite 8.x/9.x
 
 ## 1. Business Overview
 
