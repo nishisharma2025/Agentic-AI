@@ -1,0 +1,3 @@
+Test Case ID,Test Scenario,Description,Preconditions,Test Steps,Expected Result,Execution Instructions,Test Data,Status
+TC-01,CREATE Asset,Basic asset creation,none,"Open Asset application, enter details, save asset",Asset created,"Confirm asset is in active status","ASSET001,Address=factory 1",New
+TC-02,CREATE regular PM,Basic PM definition,"Asset exists","Open PM application, create preventive maintenance, save","PM created and associated with asset","Validate PM has correct asset linkable","PMNUM=1001",New
