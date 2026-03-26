@@ -1,0 +1,44 @@
+Test ID,Title,Preconditions,Steps,Expected Result,Priority
+TC01,Generate PM WO with Inspection Form,"PM record active for asset A, Inspection Form IF001 associated, PM due date reached","1. Run PM generation (PMWOGEN or cron)
+2. Open generated WO","PM WO created with WOTYPE=PM, linked asset A, Inspection Form IF001 available on WO",High
+TC02,Record All Inspection Points as Pass,"PM WO with IF001 in APPR status assigned to Inspector","1. Open WO
+2. Complete all inspection questions with PASS or acceptable values
+3. Save inspection
+4. Change WO status to COMP","WO status changes to COMP without errors; no corrective WO created; inspection results stored",High
+TC03,Fail Critical Inspection Question and Auto-Create Corrective WO,"PM WO with IF001 where question Q_CRIT_LEAK is configured as critical with AUTOCREATEWO=Y","1. Open WO
+2. Set Q_CRIT_LEAK to FAIL
+3. Save inspection results","System automatically creates a new Corrective WO:
+- WOTYPE=CM
+- PARENT = PM WO
+- ASSETNUM same as PM WO
+- Priority based on severity mapping
+Link visible in Related Records",High
+TC04,Prevent Completion When Critical Failure Without Corrective WO,"PM WO with IF001; Q_CRIT_TEMP configured critical; user will fail question but script temporarily disabled for auto-creation (simulate missing corrective)","1. Open WO
+2. Set Q_CRIT_TEMP to FAIL
+3. Save
+4. Attempt to change status to COMP","System blocks status change to COMP and displays message indicating critical failure without corrective WO; WO remains in current status",High
+TC05,Allow Completion When Non-Critical Failure Without Corrective WO,"PM WO with non-critical question Q_NONCRIT_NOISY","1. Set Q_NONCRIT_NOISY to FAIL
+2. Save
+3. Change status to COMP","WO allowed to move to COMP; no corrective WO required; failure detail retained in inspection results for analysis",Medium
+TC06,Multiple Failures Generating Multiple Corrective WOs,"PM WO with questions Q_CRIT_LEAK and Q_CRIT_VIB both critical with AUTOCREATEWO=Y","1. Fail both critical questions
+2. Save inspection
+3. Review related records","Two distinct corrective WOs created, each linked to the PM WO, with descriptions referencing the respective inspection questions",Medium
+TC07,Validation of Mandatory Inspection Questions,"PM WO with IF001 where certain questions marked mandatory","1. Open WO
+2. Answer only some mandatory questions
+3. Save
+4. Attempt to change status to COMP","System prevents completion and lists missing mandatory questions; WO remains in current status",High
+TC08,Supervisor Override of Completion Without Corrective WO,"Workflow configured with Supervisor decision node on exception","1. Create scenario with critical failure but corrective WO not created
+2. Attempt to complete WO
+3. Supervisor receives workflow task
+4. Supervisor enters justification and approves completion","WO moves to COMP after Supervisor approval; justification stored in log/long description; audit trail maintained",Medium
+TC09,Reporting of PMs Generating Corrective WOs,"Reporting environment configured; sample data present","1. Run report 'Corrective WOs from PM Inspections'
+2. Filter by date range and asset class","Report lists PM WOs and associated corrective WOs; counts and percentages match test data; filters function correctly",Low
+TC10,Script Error Handling and Logging,"Automation scripts deployed; logging enabled","1. Simulate configuration error (e.g., missing INSPECTION_RULES row)
+2. Fail a critical question
+3. Save","System logs a meaningful error message; processing does not corrupt data; if design specifies, completion is blocked until configuration is corrected",Medium
+TC11,Mobile Execution of Inspection,"Maximo Mobile configured; inspector logged in on mobile device","1. Open assigned PM WO in mobile app
+2. Complete inspection questions including a critical failure
+3. Sync data","Inspection results synchronized to server; corrective WO created as per rules; links visible in desktop UI",Medium
+TC12,Performance under Volume,"Test environment with large number of inspection records and PM WOs","1. Execute batch PM generation
+2. Execute multiple inspections and failure scenarios
+3. Monitor response times","Average response time within acceptable limits (e.g., <2s for script triggers); no timeouts or deadlocks observed",Medium
