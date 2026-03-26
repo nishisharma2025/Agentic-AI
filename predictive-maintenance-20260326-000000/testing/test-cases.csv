@@ -1,0 +1,2 @@
+Test ID,Test Case Name,Prerequisites,Data Setup,Steps,Expected Result
+1,Iot sensor abnormal vibration generates work order,Setup sensor device with normal vibration,1. Send vibration reading over threshold via IoT platform 2. Integration layer transforms event to Maximo 3. Condition monitoring meter updates asset meter reading 4. PM rule triggers work order creation,Work order in WAPPR status is created with correct asset, past data, and linked Sensor event
