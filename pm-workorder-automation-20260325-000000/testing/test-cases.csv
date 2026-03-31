@@ -1,3 +1,0 @@
-Test ID,Description,Steps,Expected Result
-TC_01,Validate automated WO status,"1. Trigger PM 2. Generate WO","WO status updated to INOPROGRESS"
-TC_02,Check asset/PM linkage,"1. Run validation script","Invalid linkages are flagged"
