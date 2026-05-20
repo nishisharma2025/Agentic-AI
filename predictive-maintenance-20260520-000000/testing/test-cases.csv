@@ -1,0 +1,2 @@
+Test ID,Test Case Name,Prerequisites,Tesp Steps,Expected Result,Data Setup,Test Data
+1,Integration of IoT Event to Maximo,IO platform is configured to send json events,Configure IO platform to push events to topic "MI_VBRIB", Message Body: temp=100 degC, vibr=10 dB/s,",Maximo Integration Framework receives event and creates MESSAGE MQ message,Setup sample IO Event with admin/developer tools,100 deg C temperature and 10 db/s vibration speed
