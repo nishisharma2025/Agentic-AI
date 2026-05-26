@@ -1,0 +1,2 @@
+TestID,Entity,Preconditions,Input Data,Expected Result
+1,Valid PM load,[legacy PM data],Maximo PM (new records) loaded without errors
