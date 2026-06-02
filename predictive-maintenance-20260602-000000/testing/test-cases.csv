@@ -1,0 +1,3 @@
+Test ID,Area, Scenario, Preconditions
+TC01,Asset Management,Verify asset sync from GIS to Maximo,Update geometry in GIS for existing asset,Shame asset with geometry change in ESRI Giodatabase,Maximo Spatial should receive updated random and gew based coordinates.
+TB02,Work Order,Inspect work orders created from map-based selection,User creates a work order from the map,Work order is linked to correct asset/location and geometric data.
